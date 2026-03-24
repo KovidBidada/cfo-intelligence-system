@@ -1,4 +1,4 @@
-markdown# CFO Intelligence System
+ CFO Intelligence System
 
 An agentic AI-powered CFO assistant that analyzes financial documents, extracts KPIs, performs ratio analysis, and generates professional CFO-level reports using multi-agent orchestration and vector retrieval.
 
