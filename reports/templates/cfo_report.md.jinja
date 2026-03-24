@@ -1,0 +1,47 @@
+{# reports/templates/cfo_report.md.jinja #}
+
+================================================================================
+                        CFO FINANCIAL ANALYSIS REPORT
+================================================================================
+Company      : {{ company }}
+Fiscal Year  : {{ year }}
+Generated On : {{ date }}
+--------------------------------------------------------------------------------
+
+1. KEY FINANCIAL METRICS
+------------------------
+{% for k, v in kpis.items() %}
+  - {{ k.replace('_', ' ').title() }}: {{ v }}
+{% endfor %}
+
+2. FINANCIAL RATIOS
+-------------------
+{% for k, v in analysis.items() %}
+{% if k not in ['risk_flags', 'yoy_growth'] %}
+  - {{ k.replace('_', ' ').title() }}: {{ v }}
+{% endif %}
+{% endfor %}
+
+3. YEAR-OVER-YEAR GROWTH
+-------------------------
+{% if growth %}
+{% for metric, val in growth.items() %}
+  - {{ metric.replace('_', ' ').title() }}: {{ val.get('growth_%') }}%  ({{ val.get('insight') }})
+{% endfor %}
+{% else %}
+  - No growth data available.
+{% endif %}
+
+4. RISK FLAGS
+-------------
+{% if risks %}
+{% for risk in risks %}
+  - {{ risk }}
+{% endfor %}
+{% else %}
+  - No major risks detected.
+{% endif %}
+
+================================================================================
+                              END OF REPORT
+================================================================================

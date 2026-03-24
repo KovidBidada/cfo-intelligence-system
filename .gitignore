@@ -1,0 +1,24 @@
+# environment
+.env
+venv/
+
+# data
+data/raw/
+data/processed/
+data/outputs/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# models cache
+.cache/
+*.bin
+*.safetensors
+
+# IDE
+.vscode/
+.idea/
